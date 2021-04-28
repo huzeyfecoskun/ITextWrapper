@@ -26,7 +26,7 @@ namespace PDF
         private void button1_Click(object sender, EventArgs e)
         {
       
-            ITextWrapper.ImageToPdf(textBox1.Text, "d:\\", "test.pdf");
+            ITextWrapper.ImageToPdf(textBox1.Text, "d:\\test.pdf");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -42,9 +42,7 @@ namespace PDF
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ITextWrapper.Split(@"D:\mergetest",
-                @"D:\mergetest",
-                @"\out.pdf",2);
+            ITextWrapper.Split(@"D:\mergetest\out.pdf",2,@"D:\mergetest");
         }
     }
 }
