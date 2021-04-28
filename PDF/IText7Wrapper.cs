@@ -34,6 +34,25 @@ namespace PDF
         }
 
         /// <summary>
+        /// Pdf belgesinin kaç sayfa olduğunu gösterir
+        /// Return page count of PDF File
+        /// </summary>
+        /// <param name="sourceFile"></param>
+        /// <returns></returns>
+        public static int GetPageCount(string sourceFile)
+        {
+            var fileInfo = new FileInfo(sourceFile);
+            if (fileInfo.Extension != ".pdf")
+                return -1;
+            var source = new PdfDocument(new PdfReader(sourceFile));
+            Document sourceDocument = new Document(source);
+
+            int pageCount = source.GetNumberOfPages();
+            source.Close();
+            return pageCount;
+        }
+
+        /// <summary>
         /// Merge Given Files
         /// Verile dosyaları birleştir
         /// MergeFiles ( [PATH_ARRAY], "d:\\", "[OUTPUT].pdf" )
